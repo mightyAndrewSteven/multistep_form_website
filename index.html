@@ -43,7 +43,75 @@
     <link rel="preload" href="./src/correctedstyles.css" as="style" />
     <link rel="stylesheet" href="./src/correctedstyles.css" />
     <noscript data-n-css=""></noscript>
+    <style>
+      
+.contact_phonenumber_notification,
+.contact_email_notification {
+  color: red !important;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
 
+.phone-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 15px 20px;
+  background-color: transparent;
+  width: fit-content;
+  position: relative;
+}
+
+.phone-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+}
+
+
+.phone-number {
+  color: white;
+  font-size: 16px;
+  padding-left: 40px;
+  font-weight: 1000;
+}
+
+.site-header {
+  background-color: #df7f3c;
+  padding: 1rem 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80rem;
+  padding: 0 4vw;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+
+
+.logo {
+  width: 300px;
+    background-image: url(/assets/whiteR.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 280px;
+}
+    </style>
   </head>
 
   <body>
@@ -57,7 +125,11 @@
                 <img src="./assets/whiteR.svg" alt="Logo" />
               </div>
               <div class="header-phone">
-                <div><p style="font-weight:bold; color: white; margin-bottom: 10px;">Speak with the Debt Solutions Specialist.</p></div>
+                <div><p style="font-weight: bold;
+                  color: white;
+                  margin-bottom: 5px;
+                  font-size: 12px;
+                  margin-left: 5px;">Speak with the Debt Solutions Specialist.</p></div>
                 <div class="phone-container">
                   <div class="phone-icon">
                     <img src="./assets/Call Icon2.png" alt="Phone Icon" />
