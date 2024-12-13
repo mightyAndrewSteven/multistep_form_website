@@ -223,8 +223,8 @@
                                 type="radio"
                                 id="debtReliefAmount-3"
                                 name="debtReliefAmount"
-                                value="debtReliefAmount_$30k-50k"
-                              /><label for="debtReliefAmount-3" class=""
+                                value="debtReliefAmount_$30k-50k"/>
+                                <label for="debtReliefAmount-3" class=""
                                 ><span class="text-sm"
                                   >$30,000 - $49,999</span
                                 ></label
@@ -2996,6 +2996,7 @@
 
 
     <input type="hidden" class="stepNumber" value="" />
+    <input type="hidden" class="debtsize" value="" />
   </body>
 
   <script>
@@ -3262,7 +3263,8 @@
       const lastName = document.getElementById("lastName").value;
       const phoneNumber = document.getElementById("phoneNumber").value;
       const email = document.getElementById("email").value;
-      // const address = document.
+      const address = document.getElementById("streetAddress").value;
+      const totaldebt = document.querySelector(".debtsize").value;
 
       let param = "https://www.curadebt.com/signup/post/?f_ip=";
       param = param + "&f_lname=f_fname=" + firstName;
@@ -3270,8 +3272,22 @@
       param = param + "&f_phone=" + phoneNumber;
       param = param + "&f_mobilephone=";
       param = param + "&f_email=" + email;
+      param = param + "&f_totaldebt=" + totaldebt;
       param = param + "&f_whereyoulive=" + address;
 
+      fetch(param, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        body: "",
+      })
+      .then(response=>{
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
       
     }
 
@@ -3384,6 +3400,33 @@
       }
     }
 
+    function debt_size_page_func(debt_size) {
+      
+      console.log(debt_size);
+      document.querySelector(".debtsize").value = debt_size;
+
+      stepInput = document.querySelector(".stepNumber");
+      val = parseInt(stepInput.value);
+
+      console.log("current step is " + stepInput.value);
+      const currentStep = document.querySelector(".step" + val);
+      if (currentStep) {
+        currentStep.style.display = "none";
+      } else {
+        console.error(`Current step with ID #${val} not found`);
+        return; // Exit if the current step element does not exist
+      }
+      val = val + 1;
+      stepInput.value = val;
+
+      const nextStep = document.querySelector(".step" + val);
+      if (nextStep) {
+        nextStep.style.display = "block";
+      } else {
+        console.error(`Next step with ID #${val} not found`);
+      }
+
+    }
     function birthBtn_func() {
       birthday_input = document.querySelector(
         ".styles_field__3DDJz.styles_text-input__AOJj9"
@@ -3427,12 +3470,12 @@
       stepInput = document.querySelector(".stepNumber");
       stepInput.value = 1;
 
-      $("#debtReliefAmount-0").click(nextBtn_func);
-      $("#debtReliefAmount-1").click(nextBtn_func);
-      $("#debtReliefAmount-2").click(nextBtn_func);
-      $("#debtReliefAmount-3").click(nextBtn_func);
-      $("#debtReliefAmount-4").click(nextBtn_func);
-      $("#debtReliefAmount-5").click(nextBtn_func);
+      $("#debtReliefAmount-0").click(() => debt_size_page_func("0-10k"));
+      $("#debtReliefAmount-1").click(() => debt_size_page_func("10k-20k"));
+      $("#debtReliefAmount-2").click(() => debt_size_page_func("20k-30k"));
+      $("#debtReliefAmount-3").click(() => debt_size_page_func("30k-40k"));
+      $("#debtReliefAmount-4").click(() => debt_size_page_func("40k-50k"));
+      $("#debtReliefAmount-5").click(() => debt_size_page_func("50k+"));
 
       $(".debt_style_label0").click(nextBtn_func);
       $(".debt_style_label1").click(nextBtn_func);
