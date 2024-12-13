@@ -3275,19 +3275,26 @@
       param = param + "&f_totaldebt=" + totaldebt;
       param = param + "&f_whereyoulive=" + address;
 
-      fetch(param, {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: "",
-      })
-      .then(response=>{
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      const success = navigator.sendBeacon(param, "");
+      if(success) {
+        console.log("Data sent successfully");
+      }
+      else {
+        console.error("request failed");
+      }
+      // fetch(param, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "text/plain",
+      //   },
+      //   body: "",
+      // })
+      // .then(response=>{
+      //   console.log(response);
+      // })
+      // .catch(error => {
+      //   console.log(error);
+      // });
       
     }
 
