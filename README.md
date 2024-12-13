@@ -1,1 +1,1 @@
-![This image shows the landing page of this website.](./view/jpg)
+![This image shows the landing page of this website.](./view.jpg)
