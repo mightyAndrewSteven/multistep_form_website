@@ -99,8 +99,14 @@
         }
         
         @media all and (max-width: 660px) {
-            .header-container {
+            /* .header-container {
                 flex-direction: column;
+            } */
+            .hero-title {
+                font-size: 30px;
+            }
+            .header-phone {
+                display: none;
             }
             .header-container {
                 margin: 10px auto;
@@ -1915,7 +1921,7 @@
                 <h2
                   class="font-bold lg:text-3xl text-2xl lg:leading-[45px] text-[#000]"
                 >
-                  ReliableDebtConsolidation.com
+                  Reliable Debt Consolidation
                 </h2>
                 <p class="mt-7 font-light lg:text-lg text-base lg:leading-8">
                   Starting your journey towards debt relief is a transformative
@@ -1949,8 +1955,8 @@
                   future.
                 </p>
                 <div class="mt-6 text-center sm:text-left hide">
-                  <button
-                    class="py-4 sm:px-16 px-4 sm:text-lg font-semibold rounded-[13px] style_animation__UPiTl"
+                  <button 
+                    class="py-4 sm:px-16 px-4 sm:text-lg font-semibold rounded-[13px] style_animation__UPiTl "
                   >
                     Get Your Free Financial Consultation Now
                   </button>
@@ -2389,7 +2395,7 @@
                   <p>Take the first step toward financial freedom</p>
                   <p>
                     by exploring your options with
-                    ReliableDebtConsolidation.com.
+                    Reliable Debt Consolidation.
                   </p>
                   <button class="why-choose-button">
                     Claim Your Free Debt Relief Consultation
@@ -2781,7 +2787,7 @@
                       <h2>
                         Why Choose
                         <span class="highlight"
-                          >ReliableDebtConsolidation.com?</span
+                          >Reliable Debt Consolidation?</span
                         >
                       </h2>
                       <p>
@@ -2820,7 +2826,7 @@
                       Financial freedom is <br />
                       <span class="highlight">just a click away</span>
                     </h3>
-                    <button class="why-choose-button">
+                    <button class="why-choose-button"  id = "scrollButton">
                       Get Your Free Consultation Now
                     </button>
                   </div>
@@ -3622,14 +3628,28 @@
                 formattedMobileTextDate,
               }
             );
-            // } else {
-            //     console.warn('Invalid date detected in date input.');
-            // }
-          } else {
+            }
+           else {
             console.warn("Date input is empty.");
           }
         });
       }
+
+      const scrollToTopButton = document.getElementById("scrollButton");  
+
+      // Add a click event listener to the button  
+      
+      scrollToTopButton.addEventListener("click", function () { 
+          
+        console.log("dfdfd"); 
+          // Smoothly scroll to the top of the page  
+          window.scrollTo({  
+              top: 0,  
+              behavior: "smooth" // Use smooth scrolling  
+          });  
+      });  
+
+
     });
   </script>
 </html>
