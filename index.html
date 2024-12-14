@@ -169,8 +169,7 @@
                                         <div class="undefined styles_fields-wrapper__VMcRh">
                                             <div class="styles_form-field__hQTEx styles_form-field__8rwjZ">
                                                 <label class="styles_field-label__Z40NC"><span
-                              >How much debt<br />
-                              do you have?</span
+                              >How much debtdo you have?</span
                             ></label
                           >
                           <div
@@ -215,21 +214,11 @@
                                 type="radio"
                                 id="debtReliefAmount-3"
                                 name="debtReliefAmount"
-                                value="debtReliefAmount_$30k-50k"/>
+                                value="debtReliefAmount_$30k+"/>
                                 <label for="debtReliefAmount-3" class=""
                                 ><span class="text-sm"
-                                  >$30,000 - $49,999</span
+                                  >$30,000 +</span
                                 ></label
-                              >
-                            </div>
-                            <div class="styles_option__vHQv1 debt_amount">
-                              <input
-                                type="radio"
-                                id="debtReliefAmount-4"
-                                name="debtReliefAmount"
-                                value="debtReliefAmount_50k+"
-                              /><label for="debtReliefAmount-4" class=""
-                                ><span class="text-sm">$50,000 +</span></label
                               >
                             </div>
                           </div>
@@ -3472,9 +3461,7 @@
       $("#debtReliefAmount-0").click(() => debt_size_page_func("0-10k"));
       $("#debtReliefAmount-1").click(() => debt_size_page_func("10k-20k"));
       $("#debtReliefAmount-2").click(() => debt_size_page_func("20k-30k"));
-      $("#debtReliefAmount-3").click(() => debt_size_page_func("30k-40k"));
-      $("#debtReliefAmount-4").click(() => debt_size_page_func("40k-50k"));
-      $("#debtReliefAmount-5").click(() => debt_size_page_func("50k+"));
+      $("#debtReliefAmount-3").click(() => debt_size_page_func("30k+"));
 
       $(".debt_style_label0").click(nextBtn_func);
       $(".debt_style_label1").click(nextBtn_func);
