@@ -646,6 +646,7 @@ button.trusted-company-top-button {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    min-width: 200px
 }
 
 .why-choose-button:hover {
