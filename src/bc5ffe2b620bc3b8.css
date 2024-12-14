@@ -1915,7 +1915,6 @@ div.styles_moreOptions__i57_U:hover {
     0% {
         transform: rotate(0deg)
     }
-
     to {
         transform: rotate(1turn)
     }
@@ -1927,19 +1926,16 @@ div.styles_moreOptions__i57_U:hover {
         width: 0;
         opacity: 1
     }
-
     20% {
         height: 53%;
         width: 26%;
         opacity: 1
     }
-
     40% {
         height: 53%;
         width: 26%;
         opacity: 1
     }
-
     to {
         height: 53%;
         width: 26%;
@@ -2113,7 +2109,6 @@ div.styles_moreOptions__i57_U:hover {
         width: 0;
         background-color: #666
     }
-
     to {
         width: 100%;
         background-color: #666
@@ -2271,7 +2266,7 @@ div.styles_moreOptions__i57_U:hover {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-bottom: 23px
+    /* padding-bottom: 23px */
 }
 
 .styles_form-field__hQTEx .styles_field-label__Z40NC {
@@ -2402,11 +2397,9 @@ div.styles_moreOptions__i57_U:hover {
     0% {
         transform: translateX(0)
     }
-
     50% {
         transform: translateX(7px)
     }
-
     to {
         transform: translateX(0)
     }
@@ -2607,7 +2600,6 @@ div.styles_moreOptions__i57_U:hover {
 }
 
 @media(min-width:768px) {
-
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:after,
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:before {
         background-color: var(--buttonTextColor-md, var(---md, #fff))
@@ -2615,7 +2607,6 @@ div.styles_moreOptions__i57_U:hover {
 }
 
 @media(min-width:1024px) {
-
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:after,
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:before {
         background-color: var(--buttonTextColor-lg, var(---lg, #fff))
@@ -2623,7 +2614,6 @@ div.styles_moreOptions__i57_U:hover {
 }
 
 @media(min-width:1280px) {
-
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:after,
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:before {
         background-color: var(--buttonTextColor-xl, var(---xl, #fff))
@@ -2631,7 +2621,6 @@ div.styles_moreOptions__i57_U:hover {
 }
 
 @media(min-width:1536px) {
-
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:after,
     .styles_button-arrow__FF6j0 .styles_inner__Ybwhd:before {
         background-color: var(--buttonTextColor-xxl, var(---xxl, #fff))
@@ -2652,11 +2641,9 @@ div.styles_moreOptions__i57_U:hover {
     0% {
         transform: translateX(0)
     }
-
     50% {
         transform: translateX(5px)
     }
-
     to {
         transform: translateX(0)
     }
@@ -3044,7 +3031,6 @@ div.styles_moreOptions__i57_U:hover {
         padding: 20px;
         margin-top: 0
     }
-
     .styles_listing-block__RvN1M {
         padding: 20px 30px
     }
@@ -3054,7 +3040,6 @@ div.styles_moreOptions__i57_U:hover {
     0% {
         transform: skewX(-45deg) translateX(-130%)
     }
-
     to {
         transform: skewX(-45deg) translateX(20rem)
     }
@@ -3981,7 +3966,6 @@ div.styles_moreOptions__i57_U:hover {
         0% {
             transform: translateY(-100%)
         }
-
         to {
             transform: translate(0)
         }
@@ -3993,7 +3977,6 @@ div.styles_moreOptions__i57_U:hover {
         opacity: .5;
         transform: translate(-50%, -60%)
     }
-
     to {
         opacity: 1;
         transform: translate(-50%, -50%)
@@ -4200,7 +4183,6 @@ div.styles_moreOptions__i57_U:hover {
     .styles_lender-card__GNg6J .styles_fees-and-points__Hvewy .styles_data-label__j_GWp:after {
         display: none
     }
-
     .styles_lender-card__GNg6J .styles_fees-and-points__Hvewy .styles_data-label__j_GWp {
         display: block
     }
@@ -4375,7 +4357,6 @@ div.styles_moreOptions__i57_U:hover {
     0% {
         transform: skewX(-45deg) translateX(-130%)
     }
-
     to {
         transform: skewX(-45deg) translateX(20rem)
     }
@@ -4527,5 +4508,6 @@ div.styles_moreOptions__i57_U:hover {
     background-color: #f5f4ef;
     z-index: 1
 }
+
 
 /*# sourceMappingURL=bc5ffe2b620bc3b8.css.map*/

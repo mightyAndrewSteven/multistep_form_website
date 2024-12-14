@@ -72,7 +72,7 @@ p {
 }
 
 .max-w-7xl {
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
 
 img.bg-line {
@@ -82,20 +82,23 @@ img.bg-line {
 }
 
 .hero_title-wrapper {
-    max-width: 60ch;
+    /* max-width: 60ch; */
     text-align: center;
 }
 
 .hero-title {
     font-size: 40px;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 120%;
     margin-bottom: 1.5rem;
 }
 
+
+/* 
 p.hero-paragraph {
-    margin-bottom: 3rem;
+   margin-bottom: 3rem; 
 }
+*/
 
 span.alt-color {
     color: #fd8344;
