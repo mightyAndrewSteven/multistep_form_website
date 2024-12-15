@@ -323,10 +323,8 @@
                                                   </label>
                                                 <div class="styles_field__3DDJz styles_radio__K37KY styles_radio-field__tC_Vv styles_field__BHApc">
                                                     <div class="styles_option__vHQv1 debt_style-0">
-                                                        <input type="radio" id="debtReliefFormTypes-0" name="debtReliefFormTypes" value="debtReliefFormTypes_creditCardRefinance" />
-                                                        <label for="debtReliefFormTypes-0" class="debt_style_label0">
-                              <span class="text-sm">Credit Card Debt</span>
-                            </label>
+                                                        <input type="radio" id="debtReliefFormTypes-0" name="debtReliefFormTypes" value="debtReliefFormTypes_creditCardDebt" />
+                                                        <label for="debtReliefFormTypes-0" class="debt_style_label0"><span class="text-sm">Credit Card Debt</span></label>
                                                     </div>
 
                                                     <div class="styles_option__vHQv1 debt_style-2">
@@ -1809,6 +1807,9 @@
 
     <input type="hidden" class="stepNumber" value="" />
     <input type="hidden" class="debtsize" value="" />
+    <input type="hidden" class="debttype" value="" />
+
+
 </body>
 
 <script>
@@ -2076,6 +2077,8 @@
         const email = document.getElementById("email").value;
         const address = document.getElementById("streetAddress").value;
         const totaldebt = document.querySelector(".debtsize").value;
+        const comment = document.querySelector(".debttype").value;
+        const address2 = address.replace(/\s+/g, "");
 
         let param = "https://www.curadebt.com/signup/post/?f_ip=";
         param = param + "&f_lname=f_fname=" + firstName;
@@ -2084,27 +2087,29 @@
         param = param + "&f_mobilephone=";
         param = param + "&f_email=" + email;
         param = param + "&f_totaldebt=" + totaldebt;
-        param = param + "&f_whereyoulive=" + address;
+        param = param + "&f_whereyoulive=" + address2;
+        param = param + "&f_comments=" + comment;
 
-        const success = navigator.sendBeacon(param, "");
-        if (success) {
-            console.log("Data sent successfully");
-        } else {
-            console.error("request failed");
-        }
-        // fetch(param, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "text/plain",
-        //   },
-        //   body: "",
-        // })
-        // .then(response=>{
-        //   console.log(response);
-        // })
-        // .catch(error => {
-        //   console.log(error);
-        // });
+        // const success = navigator.sendBeacon(param, "");
+        // if (success) {
+        //     console.log("Data sent successfully");
+        // } else {
+        //     console.error("request failed");
+        // }
+        console.log(param);
+        fetch(param, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "text/plain",
+                },
+                body: "",
+            })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
     }
 
@@ -2250,6 +2255,35 @@
 
     }
 
+    function debt_type_page_func(debt_type) {
+
+        console.log(debt_type);
+        document.querySelector(".debttype").value = debt_type;
+
+        stepInput = document.querySelector(".stepNumber");
+        val = parseInt(stepInput.value);
+
+        console.log("current step is " + stepInput.value);
+        const currentStep = document.querySelector(".step" + val);
+        if (currentStep) {
+            currentStep.style.display = "none";
+        } else {
+            console.error(`Current step with ID #${val} not found`);
+            return; // Exit if the current step element does not exist
+        }
+        val = val + 1;
+        stepInput.value = val;
+
+        const nextStep = document.querySelector(".step" + val);
+        if (nextStep) {
+            nextStep.style.display = "block";
+        } else {
+            console.error(`Next step with ID #${val} not found`);
+        }
+
+    }
+
+
     function birthBtn_func() {
         birthday_input = document.querySelector(
             ".styles_field__3DDJz.styles_text-input__AOJj9"
@@ -2298,12 +2332,11 @@
         $("#debtReliefAmount-2").click(() => debt_size_page_func("20k-30k"));
         $("#debtReliefAmount-3").click(() => debt_size_page_func("30k+"));
 
-        $(".debt_style_label0").click(nextBtn_func);
-        $(".debt_style_label1").click(nextBtn_func);
-        $(".debt_style_label2").click(nextBtn_func);
-        $(".debt_style_label3").click(nextBtn_func);
-        $(".debt_style_label4").click(nextBtn_func);
-        $(".debt_style_label5").click(nextBtn_func);
+        $(".debt_style_label0").click(() => debt_type_page_func("credit+card+debt"));
+        $(".debt_style_label1").click(() => debt_type_page_func("personal+loans"));
+        $(".debt_style_label2").click(() => debt_type_page_func("tax+debt"));
+        $(".debt_style_label3").click(() => debt_type_page_func("business+debt"));
+        $(".debt_style_label4").click(() => debt_type_page_func("other"));
 
         // Grab the input fields and their respective error message spans
         const firstNameInput = document.getElementById("firstName");
