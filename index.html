@@ -2040,7 +2040,184 @@
         }
     }
 
-    function contactPageBtn() {
+    // Regex-based function to identify the state from an address  
+    function getStateFromAddressRegex(address) {
+        // List of US states (both full names and abbreviations)  
+        const states = [{
+            name: "Alabama",
+            abbreviation: "AL"
+        }, {
+            name: "Alaska",
+            abbreviation: "AK"
+        }, {
+            name: "Arizona",
+            abbreviation: "AZ"
+        }, {
+            name: "Arkansas",
+            abbreviation: "AR"
+        }, {
+            name: "California",
+            abbreviation: "CA"
+        }, {
+            name: "Colorado",
+            abbreviation: "CO"
+        }, {
+            name: "Connecticut",
+            abbreviation: "CT"
+        }, {
+            name: "Delaware",
+            abbreviation: "DE"
+        }, {
+            name: "Florida",
+            abbreviation: "FL"
+        }, {
+            name: "Georgia",
+            abbreviation: "GA"
+        }, {
+            name: "Hawaii",
+            abbreviation: "HI"
+        }, {
+            name: "Idaho",
+            abbreviation: "ID"
+        }, {
+            name: "Illinois",
+            abbreviation: "IL"
+        }, {
+            name: "Indiana",
+            abbreviation: "IN"
+        }, {
+            name: "Iowa",
+            abbreviation: "IA"
+        }, {
+            name: "Kansas",
+            abbreviation: "KS"
+        }, {
+            name: "Kentucky",
+            abbreviation: "KY"
+        }, {
+            name: "Louisiana",
+            abbreviation: "LA"
+        }, {
+            name: "Maine",
+            abbreviation: "ME"
+        }, {
+            name: "Maryland",
+            abbreviation: "MD"
+        }, {
+            name: "Massachusetts",
+            abbreviation: "MA"
+        }, {
+            name: "Michigan",
+            abbreviation: "MI"
+        }, {
+            name: "Minnesota",
+            abbreviation: "MN"
+        }, {
+            name: "Mississippi",
+            abbreviation: "MS"
+        }, {
+            name: "Missouri",
+            abbreviation: "MO"
+        }, {
+            name: "Montana",
+            abbreviation: "MT"
+        }, {
+            name: "Nebraska",
+            abbreviation: "NE"
+        }, {
+            name: "Nevada",
+            abbreviation: "NV"
+        }, {
+            name: "New Hampshire",
+            abbreviation: "NH"
+        }, {
+            name: "New Jersey",
+            abbreviation: "NJ"
+        }, {
+            name: "New Mexico",
+            abbreviation: "NM"
+        }, {
+            name: "New York",
+            abbreviation: "NY"
+        }, {
+            name: "North Carolina",
+            abbreviation: "NC"
+        }, {
+            name: "North Dakota",
+            abbreviation: "ND"
+        }, {
+            name: "Ohio",
+            abbreviation: "OH"
+        }, {
+            name: "Oklahoma",
+            abbreviation: "OK"
+        }, {
+            name: "Oregon",
+            abbreviation: "OR"
+        }, {
+            name: "Pennsylvania",
+            abbreviation: "PA"
+        }, {
+            name: "Rhode Island",
+            abbreviation: "RI"
+        }, {
+            name: "South Carolina",
+            abbreviation: "SC"
+        }, {
+            name: "South Dakota",
+            abbreviation: "SD"
+        }, {
+            name: "Tennessee",
+            abbreviation: "TN"
+        }, {
+            name: "Texas",
+            abbreviation: "TX"
+        }, {
+            name: "Utah",
+            abbreviation: "UT"
+        }, {
+            name: "Vermont",
+            abbreviation: "VT"
+        }, {
+            name: "Virginia",
+            abbreviation: "VA"
+        }, {
+            name: "Washington",
+            abbreviation: "WA"
+        }, {
+            name: "West Virginia",
+            abbreviation: "WV"
+        }, {
+            name: "Wisconsin",
+            abbreviation: "WI"
+        }, {
+            name: "Wyoming",
+            abbreviation: "WY"
+        }, ];
+
+        // Match either the full name or abbreviation of any state  
+        for (const state of states) {
+            const regex = new RegExp(`\\b(${state.name}|${state.abbreviation})\\b`, "i");
+            if (regex.test(address)) {
+                return state.abbreviation; // Return the full state name if matched  
+            }
+        }
+
+        return null; // Return null if no state is found  
+    }
+
+    function getIp() {
+        return fetch('https://ifconfig.me/ip')
+            .then(response => response.text())
+            .then(ip => {
+                console.log("Public IP Address:", ip);
+                return ip;
+            })
+            .catch(error => console.error('Error fetching public IP:', error));
+    }
+
+
+    async function contactPageBtn() {
 
         const isPhoneValid = validatePhoneNumber();
         const isEmailValid = validateEmail();
@@ -2069,25 +2246,71 @@
             }
         }
 
+
+
         // submit the result
         const firstName = document.getElementById("firstName").value;
         const lastName = document.getElementById("lastName").value;
         const phoneNumber = document.getElementById("phoneNumber").value;
         const email = document.getElementById("email").value;
         const address = document.getElementById("streetAddress").value;
+        const stateName = getStateFromAddressRegex(address);
         const totaldebt = document.querySelector(".debtsize").value;
         const comment = document.querySelector(".debttype").value;
         const address2 = address.replace(/\s+/g, "");
 
-        let param = "https://www.curadebt.com/signup/post/?f_ip=";
-        param = param + "&f_lname=f_fname=" + firstName;
+        let f_ip;
+
+        async function getResolvedIP() {
+            const ip = await getIp(); // Wait for the IP address to resolve  
+            console.log("Resolved IP Address:", ip);
+            return ip; // Return the IP if needed  
+        }
+
+        // Call it  
+        f_ip = await getResolvedIP();
+        console.log(f_ip);
+
+        // If you try to log f_ip here, it will still be undefined  
+        console.log("This will run first. f_ip:", f_ip); // Output: undefined
+
+        console.log("your state is " + stateName);
+
+        // Example: Get the value of 'f_affiliateid '
+        var f_affiliateid = getQueryStringParameter('a_');
+        console.log(f_affiliateid); // This will log "GOOGLE"
+
+        // Example: Get the value of 'data1'
+        var f_data1 = getQueryStringParameter('data1');
+        console.log(f_data1); // This will log "ClickID"
+
+        // Example: Get the value of 'data2'
+        var f_data2 = getQueryStringParameter('data2');
+        console.log(f_data2); // This will log "CLICKID2"
+
+        // Example: Get the value of 'data3'
+        var f_data3 = getQueryStringParameter('data3');
+        console.log(f_data3); // This will log "CLICKID2"
+
+        // Example: Get the value of 'data4'
+        var f_data4 = getQueryStringParameter('data4');
+        console.log(f_data4); // This will log "CLICKID2"
+
+        let param = "https://www.curadebt.com/signup/post/?";
+        param = param + "f_affiliateid=" + f_affiliateid;
+        param = param + "&f_ip=" + f_ip;
+        param = param + "&f_fname=" + firstName;
         param = param + "&f_lname=" + lastName;
         param = param + "&f_phone=" + phoneNumber;
         param = param + "&f_mobilephone=";
         param = param + "&f_email=" + email;
         param = param + "&f_totaldebt=" + totaldebt;
-        param = param + "&f_whereyoulive=" + address2;
+        param = param + "&f_whereyoulive=" + stateName;
         param = param + "&f_comments=" + comment;
+        param = param + "&data1=" + f_data1;
+        param = param + "&data2=" + f_data2;
+        param = param + "&data3=" + f_data3;
+        param = param + "&data4=" + f_data4;
 
         // testURL = "https://secure.leads360.com/Import.aspx?Provider=curadebt&Client=CuraDebtSystemsLLC&CampaignId=";
         // const success = navigator.sendBeacon(param, "");
@@ -2096,6 +2319,9 @@
         // } else {
         //     console.error("request failed");
         // }
+
+        // Function to get the value of a URL parameter by name
+
         console.log(param);
         fetch(param, {
                 method: "POST",
@@ -2324,14 +2550,24 @@
         }
     }
 
+    function getQueryStringParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search); // Get query string parameters
+        return urlParams.get(name); // Return the value of the parameter
+    }
+
     $(document).ready(function() {
         stepInput = document.querySelector(".stepNumber");
         stepInput.value = 1;
 
-        $("#debtReliefAmount-0").click(() => debt_size_page_func("0-10k"));
-        $("#debtReliefAmount-1").click(() => debt_size_page_func("10k-20k"));
-        $("#debtReliefAmount-2").click(() => debt_size_page_func("20k-30k"));
-        $("#debtReliefAmount-3").click(() => debt_size_page_func("30k+"));
+
+
+
+
+
+        $("#debtReliefAmount-0").click(() => debt_size_page_func("5000"));
+        $("#debtReliefAmount-1").click(() => debt_size_page_func("15000"));
+        $("#debtReliefAmount-2").click(() => debt_size_page_func("25000"));
+        $("#debtReliefAmount-3").click(() => debt_size_page_func("40000"));
 
         $(".debt_style_label0").click(() => debt_type_page_func("credit+card+debt"));
         $(".debt_style_label1").click(() => debt_type_page_func("personal+loans"));
