@@ -2089,16 +2089,17 @@
         param = param + "&f_whereyoulive=" + address2;
         param = param + "&f_comments=" + comment;
 
-        testURL = "https://secure.leads360.com/Import.aspx?Provider=curadebt&Client=CuraDebtSystemsLLC&CampaignId=";
+        // testURL = "https://secure.leads360.com/Import.aspx?Provider=curadebt&Client=CuraDebtSystemsLLC&CampaignId=";
         // const success = navigator.sendBeacon(param, "");
         // if (success) {
         //     console.log("Data sent successfully");
         // } else {
         //     console.error("request failed");
         // }
-        console.log(testURL);
-        fetch(testURL, {
+        console.log(param);
+        fetch(param, {
                 method: "POST",
+                mode: 'no-cors',
                 headers: {
                     "Content-Type": "text/plain",
                 },
