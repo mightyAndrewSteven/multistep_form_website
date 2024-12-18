@@ -7,13 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>Reliable Debt Consolidation</title>
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/R Icon.png"
-      class="favicon"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/R Icon.png" class="favicon" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" />
@@ -2095,14 +2089,15 @@
         param = param + "&f_whereyoulive=" + address2;
         param = param + "&f_comments=" + comment;
 
+        testURL = "https://secure.leads360.com/Import.aspx?Provider=curadebt&Client=CuraDebtSystemsLLC&CampaignId=";
         // const success = navigator.sendBeacon(param, "");
         // if (success) {
         //     console.log("Data sent successfully");
         // } else {
         //     console.error("request failed");
         // }
-        console.log(param);
-        fetch(param, {
+        console.log(testURL);
+        fetch(testURL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "text/plain",
