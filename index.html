@@ -205,7 +205,7 @@
                                     <img src="./assets/Call Icon2.png" alt="Phone Icon" />
                                 </div>
                                 <div class="phone-number">
-                                    +1 (123) 456-7890
+                                    +1 (954) 889-8888
                                 </div>
                             </div>
                         </div>
@@ -1412,8 +1412,8 @@
                             </p>
                             <div class="mt-6 text-center sm:text-left hide">
                                 <button class="py-4 sm:px-16 px-4 sm:text-lg font-semibold rounded-[13px] style_animation__UPiTl">
-                  Claim Your Free Debt Relief Consultation
-                </button>
+                                         Claim Your Free Debt Relief Consultation
+                                </button>
                             </div>
                         </div>
                     </section>
@@ -1424,7 +1424,7 @@
                                 <p>
                                     by exploring your options with Reliable Debt Consolidation.
                                 </p>
-                                <button class="why-choose-button">
+                                <button class="why-choose-button" id="scrollButton1">
                   Claim Your Free Debt Relief Consultation
                 </button>
                             </div>
@@ -1515,7 +1515,7 @@
                                 </div>
 
                                 <div class="trusted-company-bottom-button-wrapper">
-                                    <button class="why-choose-button">
+                                    <button class="why-choose-button" id="scrollButton2">
                     Your Path to Debt Freedom Starts Here
                   </button>
                                 </div>
@@ -1908,7 +1908,6 @@
     function prevBtn_func() {
         val = parseInt(stepInput.value);
 
-        console.log("current step is " + stepInput.value);
 
         const currentStep = document.querySelector(".step" + val);
         if (currentStep) {
@@ -1919,7 +1918,6 @@
         }
         val = val - 1;
         stepInput.value = val;
-        console.log("current step is " + stepInput.value);
 
         const prevStep = document.querySelector(".step" + val);
         if (prevStep) {
@@ -1933,7 +1931,6 @@
         stepInput = document.querySelector(".stepNumber");
         val = parseInt(stepInput.value);
 
-        console.log("current step is " + stepInput.value);
         const currentStep = document.querySelector(".step" + val);
         if (currentStep) {
             currentStep.style.display = "none";
@@ -2177,7 +2174,6 @@
         return fetch('https://ifconfig.me/ip')
             .then(response => response.text())
             .then(ip => {
-                console.log("Public IP Address:", ip);
                 return ip;
             })
             .catch(error => console.error('Error fetching public IP:', error));
@@ -2230,38 +2226,16 @@
 
         async function getResolvedIP() {
             const ip = await getIp(); // Wait for the IP address to resolve  
-            console.log("Resolved IP Address:", ip);
             return ip; // Return the IP if needed  
         }
 
-        // Call it  
         f_ip = await getResolvedIP();
-        console.log(f_ip);
 
-        // If you try to log f_ip here, it will still be undefined  
-        console.log("This will run first. f_ip:", f_ip); // Output: undefined
-
-        console.log("your state is " + stateName);
-
-        // Example: Get the value of 'f_affiliateid '
         var f_affiliateid = getQueryStringParameter('a_');
-        console.log(f_affiliateid); // This will log "GOOGLE"
-
-        // Example: Get the value of 'data1'
         var f_data1 = getQueryStringParameter('data1');
-        console.log(f_data1); // This will log "ClickID"
-
-        // Example: Get the value of 'data2'
         var f_data2 = getQueryStringParameter('data2');
-        console.log(f_data2); // This will log "CLICKID2"
-
-        // Example: Get the value of 'data3'
         var f_data3 = getQueryStringParameter('data3');
-        console.log(f_data3); // This will log "CLICKID2"
-
-        // Example: Get the value of 'data4'
         var f_data4 = getQueryStringParameter('data4');
-        console.log(f_data4); // This will log "CLICKID2"
 
         let param = "https://www.curadebt.com/signup/post/?";
         param = param + "f_affiliateid=" + f_affiliateid;
@@ -2279,17 +2253,6 @@
         param = param + "&data3=" + f_data3;
         param = param + "&data4=" + f_data4;
 
-        // testURL = "https://secure.leads360.com/Import.aspx?Provider=curadebt&Client=CuraDebtSystemsLLC&CampaignId=";
-        // const success = navigator.sendBeacon(param, "");
-        // if (success) {
-        //     console.log("Data sent successfully");
-        // } else {
-        //     console.error("request failed");
-        // }
-
-        // Function to get the value of a URL parameter by name
-
-        console.log(param);
         fetch(param, {
                 method: "POST",
                 mode: 'no-cors',
@@ -2401,7 +2364,6 @@
             stepInput = document.querySelector(".stepNumber");
             val = parseInt(stepInput.value);
 
-            console.log("current step is " + stepInput.value);
             const currentStep = document.querySelector(".step" + val);
             if (currentStep) {
                 currentStep.style.display = "none";
@@ -2423,13 +2385,11 @@
 
     function debt_size_page_func(debt_size) {
 
-        console.log(debt_size);
         document.querySelector(".debtsize").value = debt_size;
 
         stepInput = document.querySelector(".stepNumber");
         val = parseInt(stepInput.value);
 
-        console.log("current step is " + stepInput.value);
         const currentStep = document.querySelector(".step" + val);
         if (currentStep) {
             currentStep.style.display = "none";
@@ -2451,13 +2411,11 @@
 
     function debt_type_page_func(debt_type) {
 
-        console.log(debt_type);
         document.querySelector(".debttype").value = debt_type;
 
         stepInput = document.querySelector(".stepNumber");
         val = parseInt(stepInput.value);
 
-        console.log("current step is " + stepInput.value);
         const currentStep = document.querySelector(".step" + val);
         if (currentStep) {
             currentStep.style.display = "none";
@@ -2492,7 +2450,6 @@
             stepInput = document.querySelector(".stepNumber");
             val = parseInt(stepInput.value);
 
-            console.log("current step is " + stepInput.value);
             const currentStep = document.querySelector(".step" + val);
             if (currentStep) {
                 currentStep.style.display = "none";
@@ -2597,7 +2554,6 @@
                 birthday_error_message.style.display = "none";
 
                 const selectedDate = event.target.value; // Capture the date selected (in YYYY-MM-DD format)
-                console.log("Date selected (raw format):", selectedDate);
 
                 if (selectedDate) {
                     // Convert the date to MM/DD/YYYY format
@@ -2606,11 +2562,9 @@
                     // Update the mobile input's value with the formatted date
                     mobileInput.value = formattedDate;
 
-                    console.log("Mobile input updated: ", formattedDate);
                 } else {
                     // Clear the mobile input if no date is selected
                     mobileInput.value = "";
-                    console.log("Mobile input cleared due to empty date selection.");
                 }
             });
         }
@@ -2631,8 +2585,6 @@
                     const day = daySelect.value;
                     const year = yearSelect.value;
 
-                    // console.log(month + day + year)
-
                     if (month && day && year) {
                         // Format date as MM/DD/YYYY
                         const formattedDate = `${String(month).padStart(2, "0")}/${String(
@@ -2642,10 +2594,6 @@
                         // Update mobile input
                         mobileInput.value = formattedDate;
 
-                        console.log(
-                            "Mobile input updated from windows selects:",
-                            formattedDate
-                        );
                     } else {
                         // Clear mobile input if incomplete date
                         mobileInput.value = "";
@@ -2655,7 +2603,6 @@
 
             dateInput.addEventListener("change", () => {
                 const dateValue = dateInput.value.trim(); // Value from <input type="date">
-                console.log("Date input value changed:", dateValue);
 
                 if (dateValue) {
                     // Extract year, month, and day from the date value (YYYY-MM-DD format)
@@ -2678,14 +2625,6 @@
             )}/${String(day).padStart(2, "0")}/${year}`;
                     mobileInput.value = formattedMobileTextDate;
 
-                    console.log(
-                        "Window selects and mobile text input updated from mobile date input:", {
-                            year,
-                            month,
-                            day,
-                            formattedMobileTextDate,
-                        }
-                    );
                 } else {
                     console.warn("Date input is empty.");
                 }
@@ -2693,12 +2632,31 @@
         }
 
         const scrollToTopButton = document.getElementById("scrollButton");
+        const scrollToTopButton1 = document.getElementById("scrollButton1");
+        const scrollToTopButton2 = document.getElementById("scrollButton2");
+
 
         // Add a click event listener to the button  
 
         scrollToTopButton.addEventListener("click", function() {
 
-            console.log("dfdfd");
+            // Smoothly scroll to the top of the page  
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Use smooth scrolling  
+            });
+        });
+
+        scrollToTopButton1.addEventListener("click", function() {
+            console.log('sfsd');
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Use smooth scrolling  
+            });
+        });
+
+        scrollToTopButton2.addEventListener("click", function() {
+
             // Smoothly scroll to the top of the page  
             window.scrollTo({
                 top: 0,
