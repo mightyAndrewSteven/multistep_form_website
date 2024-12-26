@@ -2227,6 +2227,9 @@
         const totaldebt = document.querySelector(".debtsize").value;
         const comment = document.querySelector(".debttype").value;
         const address2 = address.replace(/\s+/g, "");
+        const birthday = document.querySelector(
+            ".styles_field__3DDJz.styles_text-input__AOJj9"
+        ).value;
 
         let f_ip;
 
@@ -2238,10 +2241,31 @@
         f_ip = await getResolvedIP();
 
         var f_affiliateid = getQueryStringParameter('a_');
-        var f_data1 = getQueryStringParameter('data1');
-        var f_data2 = getQueryStringParameter('data2');
-        var f_data3 = getQueryStringParameter('data3');
-        var f_data4 = getQueryStringParameter('data4');
+        // var f_data1 = getQueryStringParameter('data1');
+        // var f_data2 = getQueryStringParameter('data2');
+        // var f_data3 = getQueryStringParameter('data3');
+        // var f_data4 = getQueryStringParameter('data4');
+
+        const queryString = window.location.search.substring(1);
+        const queryParams = queryString.split("&");
+        const params = {};
+        queryParams.forEach(pair => {
+            const [key, value] = pair.split("=");
+            params[key] = decodeURIComponent(value || "");
+        });
+
+        // Retrieve UTM and custom parameters from the object  
+        const f_data1 = params["utm_source"] || "direct";
+        const f_data2 = params["utm_medium"] || "none";
+        const f_data3 = params["utm_campaign"] || "unknown";
+        const f_data4 = params["utm_content"] || "default_content";
+
+        console.log("Custom f_data1:", f_data1);
+        console.log("Custom f_data2:", f_data2);
+        console.log("Custom f_data3:", f_data3);
+        console.log("Custom f_data4:", f_data4);
+
+
 
         let param = "https://www.curadebt.com/signup/post/?";
         param = param + "f_affiliateid=" + f_affiliateid;
@@ -2254,10 +2278,16 @@
         param = param + "&f_totaldebt=" + totaldebt;
         param = param + "&f_whereyoulive=" + stateName;
         param = param + "&f_comments=" + comment;
+        param = param + "&a_=" + address2;
+        param = param + "&b_=" + birthday;
+
         param = param + "&data1=" + f_data1;
         param = param + "&data2=" + f_data2;
         param = param + "&data3=" + f_data3;
         param = param + "&data4=" + f_data4;
+
+
+        console.log(param);
 
         fetch(param, {
                 method: "POST",
