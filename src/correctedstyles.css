@@ -801,3 +801,151 @@ ul#suggestions li:hover {
     border: 2px solid red !important;
     outline: none;
 }
+
+.contact_phonenumber_notification,
+.contact_email_notification {
+    color: red !important;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.phone-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 15px 20px;
+    background-color: transparent;
+    width: fit-content;
+    position: relative;
+}
+
+.phone-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+}
+
+.phone-number {
+    color: white;
+    font-size: 16px;
+    padding-left: 40px;
+    font-weight: 1000;
+    text-align: center;
+}
+
+.site-header {
+    background-color: #df7f3c;
+    padding: 1rem 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80rem;
+    padding: 0 4vw;
+    margin: 0 auto;
+    gap: 3rem;
+}
+
+.trusted-company-card ul {
+    list-style: disc outside;
+    margin-top: 10px;
+    color: #555;
+    margin-left: 30px;
+}
+
+.logo {
+    width: 300px;
+    background-image: url(/assets/whiteR.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 200px;
+}
+
+.label_above_input {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    /* margin-bottom: 20px; */
+}
+
+.styles_field__3DDJz.styles_input-field__Vnpak.styles_field__BHApc {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+    .trusted-company-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media all and (max-width: 660px) {
+    /* .header-container {
+                flex-direction: column;
+            } */
+    .max-w-7xl {
+        padding-top: 1.5rem;
+    }
+    .hero-title {
+        font-size: 20px;
+        margin-bottom: 0.5rem;
+    }
+    .hero-paragraph {
+        font-size: 15px;
+    }
+    .header-container {
+        margin: 10px auto;
+        gap: 2.5rem;
+    }
+    .styles_main-banner__raOE7 .styles_form__5EWVS .styles_step___Sqfu .styles_form-field__8rwjZ>label {
+        font-size: 20px !important;
+        line-height: 30px;
+    }
+    .styles_main-banner__raOE7 .styles_form__5EWVS {
+        padding: 15px;
+        margin-top: 10px;
+    }
+    .styles_main-banner__raOE7 .styles_form__5EWVS .styles_fields-wrapper__VMcRh {
+        margin-top: 0.5rem;
+    }
+    .styles_progress-bar__t428f {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .styles_description__Fnp9t.styles_step-description__Fv24y {
+        margin-bottom: 1rem !important;
+    }
+    .styles_main-banner__raOE7 .styles_form__5EWVS .styles_step-title__XYhLu {
+        font-size: 20px !important;
+        line-height: 30px;
+    }
+    .logo {
+        max-width: 200px;
+    }
+    .text_above_phoneicon {
+        display: none;
+    }
+    .phone-container {
+        padding: 0px 10px;
+    }
+    .phone-number {
+        font-size: 12px;
+        font-weight: 100;
+    }
+    .phone-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
